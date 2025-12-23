@@ -1,0 +1,3670 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhil Store - Top Up Game Lengkap & Joki MLBB</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* VARIABLES & ANIMATIONS */
+        :root {
+            --primary-color: #e63946;
+            --secondary-color: #4361ee;
+            --accent-color: #7209b7;
+            --dark-bg: #121212;
+            --card-bg: #1e1e1e;
+            --text-light: #f5f5f5;
+            --text-gray: #b0b0b0;
+            --border-color: #333333;
+            --success: #4CAF50;
+            --warning: #ff9800;
+            --info: #2196f3;
+        }
+        
+        @keyframes colorShift {
+            0% { --primary-color: #e63946; --secondary-color: #4361ee; --accent-color: #7209b7; }
+            25% { --primary-color: #4361ee; --secondary-color: #7209b7; --accent-color: #e63946; }
+            50% { --primary-color: #7209b7; --secondary-color: #e63946; --accent-color: #4361ee; }
+            75% { --primary-color: #2a9d8f; --secondary-color: #e9c46a; --accent-color: #f4a261; }
+            100% { --primary-color: #e63946; --secondary-color: #4361ee; --accent-color: #7209b7; }
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes pulseWeekly {
+            0% { box-shadow: 0 0 0 0 rgba(0, 200, 83, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 200, 83, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 200, 83, 0); }
+        }
+        
+        @keyframes pulseMembership {
+            0% { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 107, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0); }
+        }
+        
+        .color-animated {
+            animation: colorShift 20s infinite linear;
+        }
+        
+        /* BASE STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* HEADER */
+        header {
+            background-color: rgba(18, 18, 18, 0.98);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-decoration: none;
+            animation: gradientShift 5s ease infinite;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+            background-color: rgba(230, 57, 70, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), 
+                        url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradientShift 4s ease infinite;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: var(--text-gray);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            animation: gradientShift 4s ease infinite;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        /* SECTIONS */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+            font-size: 2.2rem;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            margin: 10px auto;
+            animation: gradientShift 4s ease infinite;
+        }
+        
+        /* GAMES SECTION */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+        
+        .game-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            border-color: var(--primary-color);
+        }
+        
+        .game-image {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .game-info {
+            padding: 20px;
+        }
+        
+        .game-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+        
+        .game-desc {
+            color: var(--text-gray);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        /* PACKAGES */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .package-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        
+        .package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary-color);
+        }
+        
+        .package-card.selected {
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(230, 57, 70, 0.2);
+        }
+        
+        .package-name {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+        
+        .diamond-amount {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+            animation: gradientShift 4s ease infinite;
+        }
+        
+        .price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+        
+        .discounted-price {
+            font-weight: bold;
+            color: var(--text-light);
+            font-size: 1.2rem;
+        }
+        
+        .discount-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            animation: gradientShift 4s ease infinite;
+        }
+        
+        /* FORMS */
+        .topup-form {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 40px 0;
+            border: 1px solid var(--border-color);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: #2a2a2a;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        /* FOOTER */
+        footer {
+            background-color: #0a0a0a;
+            padding: 50px 0 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+        
+        .footer-section p, .footer-section a {
+            color: var(--text-gray);
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+        }
+        
+        .footer-section a:hover {
+            color: var(--primary-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+        
+        /* TABS & NAVIGATION */
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            font-weight: 600;
+            color: var(--text-gray);
+        }
+        
+        .tab:hover {
+            color: var(--primary-color);
+        }
+        
+        .tab.active {
+            border-bottom-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .game-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 30px 0;
+        }
+        
+        .game-nav-btn {
+            background-color: var(--card-bg);
+            color: var(--text-light);
+            border: 1px solid var(--border-color);
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .game-nav-btn.active {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-color: transparent;
+        }
+        
+        .game-nav-btn:hover {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-color: transparent;
+        }
+        
+        .game-section {
+            display: none;
+        }
+        
+        .game-section.active {
+            display: block;
+        }
+        
+        /* JOKI SECTION */
+        .joki-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .joki-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        
+        .joki-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary-color);
+        }
+        
+        .rank-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .rank-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+        
+        .rank-desc {
+            color: var(--text-gray);
+            margin-bottom: 15px;
+        }
+        
+        .joki-price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        /* RANGE TABS */
+        .range-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .range-tab {
+            padding: 8px 15px;
+            background: #2a2a2a;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .range-tab.active {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-color: transparent;
+        }
+        
+        .weekly-tab {
+            padding: 8px 15px;
+            background: linear-gradient(45deg, #00c853, #64dd17);
+            color: white;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        
+        .membership-tab {
+            padding: 8px 15px;
+            background: linear-gradient(45deg, #ff6b00, #ffa500);
+            color: white;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        
+        /* SCROLL CONTAINERS */
+        .package-scroll-container {
+            max-height: 500px;
+            overflow-y: auto;
+            padding-right: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .package-scroll-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .package-scroll-container::-webkit-scrollbar-track {
+            background: #2a2a2a;
+            border-radius: 4px;
+        }
+        
+        .package-scroll-container::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 4px;
+        }
+        
+        /* FLOATING CONTROLS */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            animation: gradientShift 4s ease infinite;
+        }
+        
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        .color-toggle {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .color-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        .theme-toggle i,
+        .color-toggle i {
+            font-size: 20px;
+            color: white;
+        }
+        
+        /* NOTIFICATION & QUICK ORDER */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            display: none;
+            animation: gradientShift 4s ease infinite;
+        }
+        
+        .quick-order {
+            position: fixed;
+            bottom: 140px;
+            right: 20px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            display: none;
+            animation: gradientShift 4s ease infinite;
+            width: 250px;
+        }
+        
+        .quick-order.show {
+            display: block;
+        }
+        
+        /* FLASH SALE */
+        .flash-sale {
+            background: linear-gradient(45deg, #e63946, #7209b7, #e63946);
+            background-size: 200% 200%;
+            animation: gradientShift 4s ease infinite;
+            padding: 20px 0;
+            margin: 30px 0;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .flash-sale:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+        
+        .flash-sale-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .flash-sale-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .countdown {
+            display: flex;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px 20px;
+            border-radius: 5px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .countdown-item {
+            text-align: center;
+            min-width: 60px;
+        }
+        
+        .countdown-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px;
+            border-radius: 5px;
+            display: block;
+        }
+        
+        .countdown-label {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 5px;
+            display: block;
+        }
+        
+        .flash-sale-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ffd700;
+            color: #000;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            transform: rotate(15deg);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+        
+        .flash-sale-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .flash-sale-item {
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            border: 2px solid #ffd700;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .flash-discount {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #e63946;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 5px;
+            width: 60%;
+        }
+        
+        /* PULSA & DATA */
+        .operator-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .operator-tab {
+            padding: 10px 20px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .operator-tab.active {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-color: transparent;
+        }
+        
+        .pulsa-packages {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .pulsa-package {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .pulsa-package:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+        
+        .pulsa-package.selected {
+            border: 2px solid var(--primary-color);
+            background: rgba(230, 57, 70, 0.1);
+        }
+        
+        .pulsa-amount {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+        
+        .pulsa-price {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        /* TESTIMONI */
+        .testimoni-section {
+            padding: 80px 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.95));
+        }
+        
+        .testimoni-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .testimoni-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .testimoni-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: var(--primary-color);
+        }
+        
+        .testimoni-card:before {
+            content: "❝";
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 60px;
+            color: var(--primary-color);
+            opacity: 0.2;
+            font-family: serif;
+        }
+        
+        .testimoni-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .testimoni-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+        }
+        
+        .testimoni-info {
+            flex: 1;
+        }
+        
+        .testimoni-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+        
+        .testimoni-game {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .rating {
+            color: #ffd700;
+            margin: 10px 0;
+        }
+        
+        .rating i {
+            margin-right: 2px;
+        }
+        
+        .testimoni-text {
+            color: var(--text-gray);
+            line-height: 1.7;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimoni-date {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            text-align: right;
+        }
+        
+        .testimoni-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+        
+        .testimoni-button {
+            position: fixed;
+            bottom: 140px;
+            left: 20px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: gradientShift 4s ease infinite;
+            transition: transform 0.3s;
+        }
+        
+        .testimoni-button:hover {
+            transform: translateY(-3px);
+        }
+        
+        /* STATS SECTION */
+        .stats-section {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            padding: 60px 0;
+            margin: 60px 0;
+            border-radius: 10px;
+            animation: gradientShift 4s ease infinite;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .stat-item {
+            color: white;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* TRUST BADGES */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .trust-badge {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+        
+        .trust-badge:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        
+        .trust-badge i {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        /* SPECIAL PACKAGES (WEEKLY & MEMBERSHIP) */
+        .weekly-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: linear-gradient(45deg, #00c853, #64dd17);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 10;
+        }
+        
+        .membership-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: linear-gradient(45deg, #ff6b00, #ffa500);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 10;
+        }
+        
+        .benefit-list {
+            margin: 10px 0;
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            text-align: left;
+        }
+        
+        .benefit-list li {
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .benefit-list i {
+            color: var(--primary-color);
+            font-size: 0.8rem;
+        }
+        
+        .duration-badge {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.3);
+            color: #ffd700;
+            padding: 3px 8px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            margin-bottom: 10px;
+        }
+        
+        .special-package {
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            background: linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
+                        linear-gradient(45deg, #00c853, #64dd17) border-box;
+        }
+        
+        .membership-package {
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            background: linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
+                        linear-gradient(45deg, #ff6b00, #ffa500) border-box;
+        }
+        
+        .special-package:hover {
+            animation: pulseWeekly 2s infinite;
+        }
+        
+        .membership-package:hover {
+            animation: pulseMembership 2s infinite;
+        }
+        
+        .duration-label {
+            font-size: 0.9rem;
+            color: #ffd700;
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        .most-popular {
+            position: relative;
+            border: 2px solid #ffd700;
+        }
+        
+        .most-popular:before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            background: #ffd700;
+            color: #000;
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            z-index: 20;
+        }
+        
+        /* FIRST TIME BADGE */
+        .first-time-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: linear-gradient(45deg, #ff0000, #ff8800);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 10;
+        }
+        
+        .first-time-game-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: linear-gradient(45deg, #ff0000, #ff8800);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 10;
+        }
+        
+        .hot-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: linear-gradient(45deg, #ff0000, #ff8800);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        /* OPERATOR COLORS */
+        .telkomsel { background: linear-gradient(45deg, #ff0000, #ff6666); }
+        .xl { background: linear-gradient(45deg, #00cc00, #66ff66); }
+        .indosat { background: linear-gradient(45deg, #ff9900, #ffcc66); }
+        .smartfren { background: linear-gradient(45deg, #9900cc, #cc66ff); }
+        .axis { background: linear-gradient(45deg, #0066cc, #66ccff); }
+        
+        .telkomsel.active { background: linear-gradient(45deg, #ff0000, #ff6666); }
+        .xl.active { background: linear-gradient(45deg, #00cc00, #66ff66); }
+        .indosat.active { background: linear-gradient(45deg, #ff9900, #ffcc66); }
+        .smartfren.active { background: linear-gradient(45deg, #9900cc, #cc66ff); }
+        .axis.active { background: linear-gradient(45deg, #0066cc, #66ccff); }
+        
+        /* RESPONSIVE STYLES */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .packages-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .flash-sale-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .countdown {
+                justify-content: center;
+            }
+            
+            .quick-order {
+                width: 200px;
+                bottom: 120px;
+            }
+            
+            .testimoni-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimoni-button {
+                bottom: 80px;
+                left: 10px;
+                font-size: 0.9rem;
+                padding: 10px 15px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .trust-badges {
+                gap: 10px;
+            }
+            
+            .trust-badge {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .joki-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .flash-sale-items {
+                grid-template-columns: 1fr;
+            }
+            
+            .pulsa-packages {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body class="color-animated">
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+    
+    <!-- Color Toggle -->
+    <div class="color-toggle" id="colorToggle">
+        <i class="fas fa-palette"></i>
+    </div>
+    
+    <!-- Quick Order -->
+    <div class="quick-order" id="quickOrder">
+        <h4 style="margin-bottom: 10px;">Pesanan Cepat</h4>
+        <div id="quickOrderContent">
+            Pilih item untuk pesan cepat
+        </div>
+        <button class="btn" style="width: 100%; margin-top: 10px;" onclick="processQuickOrder()">
+            <i class="fab fa-whatsapp"></i> Pesan Sekarang
+        </button>
+    </div>
+    
+    <!-- Testimoni Button -->
+    <div class="testimoni-button" id="testimoniButton" onclick="scrollToTestimoni()">
+        <i class="fas fa-comment-dots"></i>
+        <span>Testimoni Pelanggan</span>
+    </div>
+    
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i> <span id="notificationText">Berhasil!</span>
+    </div>
+    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">DHIL STORE</a>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#flashsale">Flash Sale</a></li>
+                        <li><a href="#games">Game</a></li>
+                        <li><a href="#topup">Top Up</a></li>
+                        <li><a href="#pulsa">Pulsa & Data</a></li>
+                        <li><a href="#joki">Joki MLBB</a></li>
+                        <li><a href="#testimoni">Testimoni</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Top Up Game Lengkap & Joki MLBB</h1>
+            <p>Dapatkan diamond, koin, dan item game favorit Anda dari 5 sampai 5000+ dengan harga termurah. Joki MLBB dari Warrior sampai Mythical Immortal.</p>
+            <a href="#topup" class="btn">Lihat Top Up</a>
+            <a href="#flashsale" class="btn btn-secondary" style="margin-left: 10px;">🔥 Flash Sale</a>
+            <a href="#testimoni" class="btn btn-secondary" style="margin-left: 10px;">⭐ Testimoni</a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" id="customerCount">5000+</span>
+                    <span class="stat-label">Pelanggan Puas</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="transactionCount">15000+</span>
+                    <span class="stat-label">Transaksi Berhasil</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="ratingCount">4.9</span>
+                    <span class="stat-label">Rating ⭐⭐⭐⭐⭐</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="responseTime">24/7</span>
+                    <span class="stat-label">Layanan 24 Jam</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flash Sale Section -->
+    <section id="flashsale" class="flash-sale">
+        <div class="container">
+            <div class="flash-sale-badge">🔥 HOT DEAL 🔥</div>
+            <div class="flash-sale-header">
+                <div class="flash-sale-title">
+                    <i class="fas fa-bolt"></i>
+                    <span>FLASH SALE</span>
+                </div>
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">00</span>
+                        <span class="countdown-label">Jam</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">00</span>
+                        <span class="countdown-label">Menit</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">00</span>
+                        <span class="countdown-label">Detik</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flash-sale-items" id="flashSaleItems">
+                <!-- Flash sale items will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <div class="container">
+        <div class="trust-badges">
+            <div class="trust-badge">
+                <i class="fas fa-shield-alt"></i>
+                <span>Aman & Terpercaya</span>
+            </div>
+            <div class="trust-badge">
+                <i class="fas fa-bolt"></i>
+                <span>Proses Cepat 1-5 Menit</span>
+            </div>
+            <div class="trust-badge">
+                <i class="fas fa-headset"></i>
+                <span>Customer Service 24 Jam</span>
+            </div>
+            <div class="trust-badge">
+                <i class="fas fa-money-bill-wave"></i>
+                <span>Garansi 100% Uang Kembali</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Games Section -->
+    <section id="games">
+        <div class="container">
+            <h2 class="section-title">Game Populer</h2>
+            <div class="games-grid" id="gamesGrid">
+                <!-- Games will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Up Section -->
+    <section id="topup">
+        <div class="container">
+            <h2 class="section-title">Top Up Game Lengkap</h2>
+            
+            <div class="game-nav" id="gameNav">
+                <!-- Game buttons will be populated by JavaScript -->
+            </div>
+            
+            <!-- Game Sections will be populated by JavaScript -->
+            <div id="gameSections"></div>
+        </div>
+    </section>
+
+    <!-- Pulsa & Data Section -->
+    <section id="pulsa">
+        <div class="container">
+            <h2 class="section-title">📱 Pulsa & Paket Data</h2>
+            
+            <div class="tabs">
+                <div class="tab active" data-tab="pulsa">Pulsa</div>
+                <div class="tab" data-tab="data">Paket Data</div>
+            </div>
+            
+            <!-- Pulsa Tab -->
+            <div class="tab-content active" id="pulsa-tab">
+                <div class="operator-tabs">
+                    <div class="operator-tab telkomsel active" data-operator="telkomsel">
+                        <i class="fas fa-sim-card"></i> Telkomsel
+                    </div>
+                    <div class="operator-tab xl" data-operator="xl">
+                        <i class="fas fa-sim-card"></i> XL
+                    </div>
+                    <div class="operator-tab indosat" data-operator="indosat">
+                        <i class="fas fa-sim-card"></i> Indosat
+                    </div>
+                    <div class="operator-tab smartfren" data-operator="smartfren">
+                        <i class="fas fa-sim-card"></i> Smartfren
+                    </div>
+                    <div class="operator-tab axis" data-operator="axis">
+                        <i class="fas fa-sim-card"></i> Axis
+                    </div>
+                </div>
+                
+                <div class="pulsa-form">
+                    <h3 style="margin-bottom: 20px;">Isi Pulsa</h3>
+                    <form id="pulsaForm">
+                        <div class="form-group">
+                            <label for="pulsa-number">Nomor Handphone</label>
+                            <input type="text" id="pulsa-number" class="form-control" placeholder="0812XXXXXX" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Pilih Nominal Pulsa</label>
+                            <div class="pulsa-packages" id="pulsaPackages">
+                                <!-- Pulsa packages will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn" style="width: 100%; margin-top: 20px;">
+                            <i class="fab fa-whatsapp"></i> Lanjutkan ke WhatsApp
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Data Tab -->
+            <div class="tab-content" id="data-tab">
+                <div class="operator-tabs">
+                    <div class="operator-tab telkomsel active" data-operator="telkomsel">
+                        <i class="fas fa-wifi"></i> Telkomsel
+                    </div>
+                    <div class="operator-tab xl" data-operator="xl">
+                        <i class="fas fa-wifi"></i> XL
+                    </div>
+                    <div class="operator-tab indosat" data-operator="indosat">
+                        <i class="fas fa-wifi"></i> Indosat
+                    </div>
+                    <div class="operator-tab smartfren" data-operator="smartfren">
+                        <i class="fas fa-wifi"></i> Smartfren
+                    </div>
+                    <div class="operator-tab axis" data-operator="axis">
+                        <i class="fas fa-wifi"></i> Axis
+                    </div>
+                </div>
+                
+                <div class="pulsa-form">
+                    <h3 style="margin-bottom: 20px;">Beli Paket Data</h3>
+                    <form id="dataForm">
+                        <div class="form-group">
+                            <label for="data-number">Nomor Handphone</label>
+                            <input type="text" id="data-number" class="form-control" placeholder="0812XXXXXX" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Pilih Paket Data</label>
+                            <div class="pulsa-packages" id="dataPackages">
+                                <!-- Data packages will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn" style="width: 100%; margin-top: 20px;">
+                            <i class="fab fa-whatsapp"></i> Lanjutkan ke WhatsApp
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Joki MLBB Section -->
+    <section id="joki">
+        <div class="container">
+            <h2 class="section-title">Joki MLBB Profesional</h2>
+            
+            <div class="joki-grid" id="jokiGrid">
+                <!-- Joki cards will be populated by JavaScript -->
+            </div>
+            
+            <div class="topup-form">
+                <h3 style="margin-bottom: 20px;">Form Pemesanan Joki MLBB</h3>
+                <form id="jokiForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="joki-userID">ID Game</label>
+                            <input type="text" id="joki-userID" class="form-control" placeholder="Masukkan ID Game" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="joki-serverID">Server ID</label>
+                            <input type="text" id="joki-serverID" class="form-control" placeholder="Masukkan Server ID" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="current-rank">Rank Saat Ini</label>
+                            <select id="current-rank" class="form-control" required>
+                                <option value="">Pilih Rank Saat Ini</option>
+                                <option value="Warrior">Warrior</option>
+                                <option value="Elite">Elite</option>
+                                <option value="Master">Master</option>
+                                <option value="Grandmaster">Grandmaster</option>
+                                <option value="Epic">Epic</option>
+                                <option value="Legend">Legend</option>
+                                <option value="Mythic">Mythic</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="target-rank">Target Rank</label>
+                            <select id="target-rank" class="form-control" required>
+                                <option value="">Pilih Target Rank</option>
+                                <option value="Warrior">Warrior</option>
+                                <option value="Elite">Elite</option>
+                                <option value="Master">Master</option>
+                                <option value="Grandmaster">Grandmaster</option>
+                                <option value="Epic">Epic</option>
+                                <option value="Legend">Legend</option>
+                                <option value="Mythic">Mythic</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn" style="width: 100%; margin-top: 20px;">Lanjutkan ke WhatsApp</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimoni Section -->
+    <section id="testimoni" class="testimoni-section">
+        <div class="container">
+            <h2 class="section-title">⭐ Testimoni Pelanggan</h2>
+            <p style="text-align: center; color: var(--text-gray); margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                Lihat apa kata pelanggan puas kami yang sudah menggunakan layanan Dhil Store. Ribuan pelanggan telah mempercayai kami untuk kebutuhan top up game dan joki MLBB.
+            </p>
+            
+            <div class="testimoni-grid" id="testimoniGrid">
+                <!-- Testimoni cards will be populated by JavaScript -->
+            </div>
+            
+            <!-- Testimoni Form -->
+            <div class="topup-form" style="margin-top: 60px;">
+                <h3 style="text-align: center; margin-bottom: 30px;">✍️ Berikan Testimoni Anda</h3>
+                <form id="testimoniForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="testimoni-name">Nama Anda</label>
+                            <input type="text" id="testimoni-name" class="form-control" placeholder="Masukkan nama Anda" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="testimoni-game">Game yang Dibelanjakan</label>
+                            <select id="testimoni-game" class="form-control" required>
+                                <option value="">Pilih Game</option>
+                                <option value="Mobile Legends">Mobile Legends</option>
+                                <option value="Free Fire">Free Fire</option>
+                                <option value="PUBG Mobile">PUBG Mobile</option>
+                                <option value="Valorant">Valorant</option>
+                                <option value="Genshin Impact">Genshin Impact</option>
+                                <option value="Call of Duty Mobile">Call of Duty Mobile</option>
+                                <option value="Free Fire MAX">Free Fire MAX</option>
+                                <option value="Honor of Kings">Honor of Kings</option>
+                                <option value="MCGG">MCGG</option>
+                                <option value="Honkai Star Rail">Honkai Star Rail</option>
+                                <option value="Delta Force">Delta Force</option>
+                                <option value="Magic Chess Gogo">Magic Chess Gogo</option>
+                                <option value="Joki MLBB">Joki MLBB</option>
+                                <option value="Pulsa & Data">Pulsa & Data</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="testimoni-rating">Rating</label>
+                        <div class="rating-input" style="display: flex; gap: 10px; margin: 10px 0;">
+                            <i class="far fa-star rating-star" data-rating="1" style="font-size: 1.5rem; cursor: pointer; color: #ccc;"></i>
+                            <i class="far fa-star rating-star" data-rating="2" style="font-size: 1.5rem; cursor: pointer; color: #ccc;"></i>
+                            <i class="far fa-star rating-star" data-rating="3" style="font-size: 1.5rem; cursor: pointer; color: #ccc;"></i>
+                            <i class="far fa-star rating-star" data-rating="4" style="font-size: 1.5rem; cursor: pointer; color: #ccc;"></i>
+                            <i class="far fa-star rating-star" data-rating="5" style="font-size: 1.5rem; cursor: pointer; color: #ccc;"></i>
+                        </div>
+                        <input type="hidden" id="testimoni-rating" value="5">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="testimoni-message">Pesan Testimoni</label>
+                        <textarea id="testimoni-message" class="form-control" rows="4" placeholder="Bagaimana pengalaman Anda berbelanja di Dhil Store?" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn" style="width: 100%; margin-top: 20px;">
+                        <i class="fas fa-paper-plane"></i> Kirim Testimoni
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Dhil Store</h3>
+                    <p>Toko top up game dan joki MLBB terpercaya dengan pelayanan cepat dan harga terjangkau.</p>
+                    <p>⭐ Rating 4.9/5 dari 5000+ pelanggan</p>
+                    <p>🔥 Flash Sale setiap hari!</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontak Kami</h3>
+                    <a href="https://wa.me/6281265537794" target="_blank">WhatsApp: 081265537794</a>
+                    <a href="mailto:admin@dhilstore.com">Email: admin@dhilstore.com</a>
+                    <p>Buka 24 Jam</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Layanan</h3>
+                    <a href="#flashsale">Flash Sale</a>
+                    <a href="#topup">Top Up Game</a>
+                    <a href="#pulsa">Pulsa & Data</a>
+                    <a href="#joki">Joki MLBB</a>
+                    <a href="#testimoni">Testimoni</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Dhil Store. All rights reserved. | <span id="colorStatus">Warna Dinamis: AKTIF</span> | <span id="saleStatus">🔥 Flash Sale Aktif!</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===========================================
+        // DATA & CONFIGURATION
+        // ===========================================
+        const games = [
+            {
+                id: 'ml',
+                name: 'Mobile Legends',
+                image: 'mlbb.jpg',
+                desc: 'Top up Diamond ML dari 5 sampai 5000+',
+                currency: 'Diamond',
+                packages: {
+                    'small': [
+                        { amount: 5, bonus: 0, price: 1500, discount: 10 },
+                        { amount: 10, bonus: 1, price: 3000, discount: 10 },
+                        { amount: 20, bonus: 2, price: 6000, discount: 10 },
+                        { amount: 30, bonus: 3, price: 9000, discount: 10 },
+                        { amount: 40, bonus: 4, price: 12000, discount: 10 },
+                        { amount: 50, bonus: 5, price: 15000, discount: 10 }
+                    ],
+                    'medium': [
+                        { amount: 70, bonus: 7, price: 21000, discount: 15 },
+                        { amount: 100, bonus: 10, price: 30000, discount: 15 },
+                        { amount: 150, bonus: 15, price: 45000, discount: 15 },
+                        { amount: 200, bonus: 20, price: 60000, discount: 15 },
+                        { amount: 250, bonus: 25, price: 75000, discount: 15 },
+                        { amount: 300, bonus: 30, price: 90000, discount: 15 }
+                    ],
+                    'large': [
+                        { amount: 500, bonus: 50, price: 150000, discount: 20 },
+                        { amount: 500, bonus: 500, price: 180000, discount: 25, special: 'first-time' },
+                        { amount: 750, bonus: 75, price: 225000, discount: 20 },
+                        { amount: 1000, bonus: 100, price: 300000, discount: 20 },
+                        { amount: 1500, bonus: 150, price: 450000, discount: 20 },
+                        { amount: 2000, bonus: 200, price: 600000, discount: 20 },
+                        { amount: 5000, bonus: 500, price: 1500000, discount: 25 }
+                    ],
+                    'weekly': [
+                        { 
+                            amount: '1x Weekly Diamond Pass', 
+                            total: 220, 
+                            duration: '7 Hari', 
+                            price: 28500, 
+                            benefits: [
+                                '50 Diamond + 10 Bonus setiap hari',
+                                'Total 220 Diamond dalam 7 hari',
+                                'Auto-renew setiap minggu',
+                                'Prioritas pengiriman'
+                            ]
+                        },
+                        { 
+                            amount: '2x Weekly Diamond Pass', 
+                            total: 440, 
+                            duration: '14 Hari', 
+                            price: 57000, 
+                            discount: 20,
+                            benefits: [
+                                '100 Diamond + 20 Bonus setiap hari',
+                                'Total 440 Diamond dalam 14 hari',
+                                'Auto-renew setiap minggu',
+                                'Prioritas pengiriman',
+                                'Bonus skin trial 3 hari'
+                            ]
+                        },
+                        { 
+                            amount: '3x Weekly Diamond Pass', 
+                            total: 660, 
+                            duration: '21 Hari', 
+                            price: 85000, 
+                            discount: 25,
+                            benefits: [
+                                '200 Diamond + 20 Bonus setiap hari',
+                                'Total 660 Diamond dalam 21 hari',
+                                'Auto-renew setiap minggu',
+                                'Prioritas pengiriman',
+                                'Bonus skin trial 7 hari',
+                                'Starlight member 3 hari'
+                            ]
+                        },
+                        { 
+                            amount: '4x Weekly Diamond Pass', 
+                            total: 880, 
+                            duration: '28 Hari', 
+                            price: 85000, 
+                            discount: 25,
+                            benefits: [
+                                '100 Diamond + 20 Bonus setiap hari',
+                                'Total 880 Diamond dalam 28 hari',
+                                'Auto-renew setiap minggu',
+                                'Prioritas pengiriman',
+                                'Bonus skin trial 7 hari',
+                                'Starlight member 3 hari'
+                            ]
+                        },
+                        { 
+                            amount: '5x Weekly Diamond Pass', 
+                            total: 1100, 
+                            duration: '35 Hari', 
+                            price: 142000, 
+                            discount: 25,
+                            benefits: [
+                                '100 Diamond + 20 Bonus setiap hari',
+                                'Total 1100 Diamond dalam 35 hari',
+                                'Auto-renew setiap minggu',
+                                'Prioritas pengiriman',
+                                'Bonus skin trial 7 hari',
+                                'Starlight member 3 hari'
+                            ]
+                        }
+                    ],
+                    'membership': [
+                        { 
+                            amount: 'Starlight Member', 
+                            duration: '30 Hari', 
+                            price: 85000, 
+                            discount: 10,
+                            benefits: [
+                                '1 Skin Starlight bulan ini',
+                                '300 Diamond langsung',
+                                'Hero trial 7 hari',
+                                'Double BP Card 5x',
+                                'Exclusive border & avatar'
+                            ]
+                        },
+                        { 
+                            amount: 'Starlight Plus', 
+                            duration: '30 Hari', 
+                            price: 200000, 
+                            discount: 15,
+                            benefits: [
+                                '1 Skin Starlight + 1 Skin Pilihan',
+                                '600 Diamond langsung',
+                                '50 Diamond setiap hari',
+                                'Hero trial 14 hari',
+                                'Double BP Card 10x',
+                                'Exclusive recall effect',
+                                'Priority customer service'
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                id: 'ff',
+                name: 'Free Fire',
+                image: 'freefire.jpeg',
+                desc: 'Diamond FF dari 5 sampai 5000+',
+                currency: 'Diamond',
+                packages: {
+                    'small': [
+                        { amount: 5, bonus: 0, price: 1500, discount: 10 },
+                        { amount: 12, bonus: 1, price: 3600, discount: 10 },
+                        { amount: 20, bonus: 2, price: 6000, discount: 10 },
+                        { amount: 30, bonus: 3, price: 9000, discount: 10 },
+                        { amount: 40, bonus: 4, price: 12000, discount: 10 },
+                        { amount: 50, bonus: 5, price: 15000, discount: 10 }
+                    ],
+                    'medium': [
+                        { amount: 70, bonus: 7, price: 21000, discount: 15 },
+                        { amount: 100, bonus: 10, price: 30000, discount: 15 },
+                        { amount: 140, bonus: 14, price: 42000, discount: 15 },
+                        { amount: 200, bonus: 20, price: 60000, discount: 15 },
+                        { amount: 250, bonus: 25, price: 75000, discount: 15 },
+                        { amount: 300, bonus: 30, price: 90000, discount: 15 }
+                    ],
+                    'large': [
+                        { amount: 500, bonus: 50, price: 150000, discount: 20 },
+                        { amount: 750, bonus: 75, price: 225000, discount: 20 },
+                        { amount: 1000, bonus: 100, price: 300000, discount: 20 },
+                        { amount: 2000, bonus: 200, price: 600000, discount: 20 },
+                        { amount: 3000, bonus: 300, price: 900000, discount: 25 },
+                        { amount: 5000, bonus: 500, price: 1500000, discount: 25 }
+                    ],
+                    'membership': [
+                        { 
+                            amount: 'Diamond Monthly Pass', 
+                            duration: '30 Hari', 
+                            price: 45000, 
+                            discount: 15,
+                            benefits: [
+                                '20 Diamond setiap hari',
+                                'Total 600 Diamond',
+                                'Exclusive Daily Login Rewards',
+                                'Special discount on items',
+                                'Priority matchmaking'
+                            ]
+                        },
+                        { 
+                            amount: 'Elite Pass', 
+                            duration: 'Season (60 Hari)', 
+                            price: 85000, 
+                            discount: 20,
+                            benefits: [
+                                'Elite Pass Instant Unlock',
+                                '400 Diamond langsung',
+                                'Exclusive skins & items',
+                                'Daily rewards x2',
+                                'Special missions access',
+                                'VIP customer support'
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                id: 'pubg',
+                name: 'PUBG Mobile',
+                image: 'PUBG mobile.jpeg',
+                desc: 'UC PUBG dari 60 sampai 8100',
+                currency: 'UC',
+                packages: {
+                    'small': [
+                        { amount: 60, bonus: 0, price: 15000, discount: 10 },
+                        { amount: 120, bonus: 12, price: 30000, discount: 10 },
+                        { amount: 180, bonus: 18, price: 45000, discount: 10 },
+                        { amount: 240, bonus: 24, price: 60000, discount: 10 },
+                        { amount: 300, bonus: 30, price: 75000, discount: 10 },
+                        { amount: 360, bonus: 36, price: 90000, discount: 10 }
+                    ],
+                    'medium': [
+                        { amount: 600, bonus: 60, price: 150000, discount: 15 },
+                        { amount: 800, bonus: 80, price: 200000, discount: 15 },
+                        { amount: 1000, bonus: 100, price: 250000, discount: 15 },
+                        { amount: 1200, bonus: 120, price: 300000, discount: 15 },
+                        { amount: 1500, bonus: 150, price: 375000, discount: 15 },
+                        { amount: 2000, bonus: 200, price: 500000, discount: 15 }
+                    ],
+                    'large': [
+                        { amount: 3000, bonus: 300, price: 750000, discount: 20 },
+                        { amount: 4000, bonus: 400, price: 1000000, discount: 20 },
+                        { amount: 5000, bonus: 500, price: 1250000, discount: 20 },
+                        { amount: 6000, bonus: 600, price: 1500000, discount: 20 },
+                        { amount: 7000, bonus: 700, price: 1750000, discount: 25 },
+                        { amount: 8100, bonus: 810, price: 2025000, discount: 25 }
+                    ],
+                    'membership': [
+                        { 
+                            amount: 'Royale Pass Monthly', 
+                            duration: '30 Hari', 
+                            price: 55000, 
+                            discount: 15,
+                            benefits: [
+                                'Instant Royale Pass unlock',
+                                '300 UC langsung',
+                                'Exclusive skins & items',
+                                'Daily login rewards',
+                                'Special missions access'
+                            ]
+                        },
+                        { 
+                            amount: 'Elite Royale Pass', 
+                            duration: 'Season (60 Hari)', 
+                            price: 95000, 
+                            discount: 20,
+                            benefits: [
+                                'Elite Pass + 600 UC',
+                                'Premium rewards track',
+                                'Exclusive vehicle skins',
+                                'VIP matchmaking priority',
+                                'Customer support priority'
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                id: 'valorant',
+                name: 'Valorant',
+                image: 'valorant.jpg',
+                desc: 'VP Valorant dari 125 sampai 8000',
+                currency: 'VP',
+                packages: {
+                    'small': [
+                        { amount: 125, bonus: 0, price: 15000, discount: 10 },
+                        { amount: 250, bonus: 25, price: 30000, discount: 10 },
+                        { amount: 375, bonus: 38, price: 45000, discount: 10 },
+                        { amount: 500, bonus: 50, price: 60000, discount: 10 },
+                        { amount: 625, bonus: 63, price: 75000, discount: 10 },
+                        { amount: 750, bonus: 75, price: 90000, discount: 10 }
+                    ],
+                    'medium': [
+                        { amount: 1000, bonus: 100, price: 120000, discount: 15 },
+                        { amount: 1250, bonus: 125, price: 150000, discount: 15 },
+                        { amount: 1500, bonus: 150, price: 180000, discount: 15 },
+                        { amount: 1750, bonus: 175, price: 210000, discount: 15 },
+                        { amount: 2000, bonus: 200, price: 240000, discount: 15 },
+                        { amount: 2250, bonus: 225, price: 270000, discount: 15 }
+                    ],
+                    'large': [
+                        { amount: 3000, bonus: 300, price: 360000, discount: 20 },
+                        { amount: 4000, bonus: 400, price: 480000, discount: 20 },
+                        { amount: 5000, bonus: 500, price: 600000, discount: 20 },
+                        { amount: 6000, bonus: 600, price: 720000, discount: 20 },
+                        { amount: 7000, bonus: 700, price: 840000, discount: 25 },
+                        { amount: 8000, bonus: 800, price: 960000, discount: 25 }
+                    ]
+                }
+            },
+            {
+                id: 'genshin',
+                name: 'Genshin Impact',
+                image: 'genshinimpact.jpg',
+                desc: 'Genesis Crystal dari 60 sampai 6480',
+                currency: 'Crystal',
+                packages: {
+                    'small': [
+                        { amount: 60, bonus: 60, price: 15000, discount: 10 },
+                        { amount: 120, bonus: 120, price: 30000, discount: 10 },
+                        { amount: 180, bonus: 180, price: 45000, discount: 10 },
+                        { amount: 240, bonus: 240, price: 60000, discount: 10 },
+                        { amount: 300, bonus: 300, price: 75000, discount: 10 },
+                        { amount: 360, bonus: 360, price: 90000, discount: 10 }
+                    ],
+                    'medium': [
+                        { amount: 600, bonus: 600, price: 150000, discount: 15 },
+                        { amount: 800, bonus: 800, price: 200000, discount: 15 },
+                        { amount: 1000, bonus: 1000, price: 250000, discount: 15 },
+                        { amount: 1200, bonus: 1200, price: 300000, discount: 15 },
+                        { amount: 1500, bonus: 1500, price: 375000, discount: 15 },
+                        { amount: 2000, bonus: 2000, price: 500000, discount: 15 }
+                    ],
+                    'large': [
+                        { amount: 3000, bonus: 3000, price: 750000, discount: 20 },
+                        { amount: 4000, bonus: 4000, price: 1000000, discount: 20 },
+                        { amount: 5000, bonus: 5000, price: 1250000, discount: 20 },
+                        { amount: 6000, bonus: 6000, price: 1500000, discount: 20 },
+                        { amount: 6480, bonus: 6480, price: 1620000, discount: 25 },
+                        { amount: 8000, bonus: 8000, price: 2000000, discount: 25 }
+                    ]
+                }
+            },
+            {
+                id: 'codm',
+                name: 'Call of Duty Mobile',
+                image: 'codm.jpeg',
+                desc: 'CP COD Mobile dari 80 sampai 8000',
+                currency: 'CP',
+                packages: {
+                    'small': [
+                        { amount: 80, bonus: 8, price: 15000, discount: 10 },
+                        { amount: 160, bonus: 16, price: 30000, discount: 10 },
+                        { amount: 240, bonus: 24, price: 45000, discount: 10 },
+                        { amount: 320, bonus: 32, price: 60000, discount: 10 },
+                        { amount: 400, bonus: 40, price: 75000, discount: 10 },
+                        { amount: 480, bonus: 48, price: 90000, discount: 10 }
+                    ],
+                    'medium': [
+                        { amount: 800, bonus: 80, price: 150000, discount: 15 },
+                        { amount: 1000, bonus: 100, price: 187500, discount: 15 },
+                        { amount: 1200, bonus: 120, price: 225000, discount: 15 },
+                        { amount: 1500, bonus: 150, price: 281250, discount: 15 },
+                        { amount: 2000, bonus: 200, price: 375000, discount: 15 },
+                        { amount: 2500, bonus: 250, price: 468750, discount: 15 }
+                    ],
+                    'large': [
+                        { amount: 3000, bonus: 300, price: 562500, discount: 20 },
+                        { amount: 4000, bonus: 400, price: 750000, discount: 20 },
+                        { amount: 5000, bonus: 500, price: 937500, discount: 20 },
+                        { amount: 6000, bonus: 600, price: 1125000, discount: 20 },
+                        { amount: 7000, bonus: 700, price: 1312500, discount: 25 },
+                        { amount: 8000, bonus: 800, price: 1500000, discount: 25 }
+                    ]
+                }
+            },
+            {
+                id: 'ffmax',
+                name: 'Free Fire MAX',
+                image: 'freefiremax.jpeg',
+                desc: 'Diamond FF MAX dari 5 sampai 5000+',
+                currency: 'Diamond',
+                packages: {
+                    'small': [
+                        { amount: 5, bonus: 0, price: 1600, discount: 10 },
+                        { amount: 12, bonus: 1, price: 3800, discount: 10 },
+                        { amount: 20, bonus: 2, price: 6200, discount: 10 },
+                        { amount: 30, bonus: 3, price: 9300, discount: 10 },
+                        { amount: 40, bonus: 4, price: 12400, discount: 10 },
+                        { amount: 50, bonus: 5, price: 15500, discount: 10 }
+                    ],
+                    'medium': [
+                        { amount: 70, bonus: 7, price: 21700, discount: 15 },
+                        { amount: 100, bonus: 10, price: 31000, discount: 15 },
+                        { amount: 140, bonus: 14, price: 43400, discount: 15 },
+                        { amount: 200, bonus: 20, price: 62000, discount: 15 },
+                        { amount: 250, bonus: 25, price: 77500, discount: 15 },
+                        { amount: 300, bonus: 30, price: 93000, discount: 15 }
+                    ],
+                    'large': [
+                        { amount: 500, bonus: 50, price: 155000, discount: 20 },
+                        { amount: 750, bonus: 75, price: 232500, discount: 20 },
+                        { amount: 1000, bonus: 100, price: 310000, discount: 20 },
+                        { amount: 2000, bonus: 200, price: 620000, discount: 20 },
+                        { amount: 3000, bonus: 300, price: 930000, discount: 25 },
+                        { amount: 5000, bonus: 500, price: 1550000, discount: 25 }
+                    ],
+                    'membership': [
+                        { 
+                            amount: 'Diamond Monthly Pass', 
+                            duration: '30 Hari', 
+                            price: 47000, 
+                            discount: 15,
+                            benefits: [
+                                '25 Diamond setiap hari',
+                                'Total 750 Diamond',
+                                'Exclusive Daily Login Rewards',
+                                'Special discount on items',
+                                'Priority matchmaking'
+                            ]
+                        },
+                        { 
+                            amount: 'Elite Pass MAX', 
+                            duration: 'Season (60 Hari)', 
+                            price: 88000, 
+                            discount: 20,
+                            benefits: [
+                                'Elite Pass MAX Instant Unlock',
+                                '450 Diamond langsung',
+                                'Exclusive skins & items',
+                                'Daily rewards x2',
+                                'Special missions access',
+                                'VIP customer support'
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                id: 'hok',
+                name: 'Honor of Kings',
+                image: 'hok.jpeg',
+                desc: 'Tokens HOK dari 10 sampai 10000',
+                currency: 'Tokens',
+                packages: {
+                    'small': [
+                        { amount: 10, bonus: 0, price: 3000, discount: 10 },
+                        { amount: 20, bonus: 2, price: 6000, discount: 10 },
+                        { amount: 30, bonus: 3, price: 9000, discount: 10 },
+                        { amount: 40, bonus: 4, price: 12000, discount: 10 },
+                        { amount: 50, bonus: 5, price: 15000, discount: 10 },
+                        { amount: 60, bonus: 6, price: 18000, discount: 10 }
+                    ],
+                    'medium': [
+                        { amount: 100, bonus: 10, price: 30000, discount: 15 },
+                        { amount: 200, bonus: 20, price: 60000, discount: 15 },
+                        { amount: 300, bonus: 30, price: 90000, discount: 15 },
+                        { amount: 400, bonus: 40, price: 120000, discount: 15 },
+                        { amount: 500, bonus: 50, price: 150000, discount: 15 },
+                        { amount: 600, bonus: 60, price: 180000, discount: 15 }
+                    ],
+                    'large': [
+                        { amount: 1000, bonus: 100, price: 300000, discount: 20 },
+                        { amount: 2000, bonus: 200, price: 600000, discount: 20 },
+                        { amount: 3000, bonus: 300, price: 900000, discount: 20 },
+                        { amount: 5000, bonus: 500, price: 1500000, discount: 20 },
+                        { amount: 8000, bonus: 800, price: 2400000, discount: 25 },
+                        { amount: 10000, bonus: 1000, price: 3000000, discount: 25 }
+                    ]
+                }
+            },
+            {
+                id: 'deltaforce',
+                name: 'Delta Force',
+                image: 'deltaforce.jpeg',
+                desc: 'Diamond Delta Force dari 10 sampai 5000',
+                currency: 'Diamond',
+                packages: {
+                    'small': [
+                        { amount: 10, bonus: 1, price: 3000, discount: 10 },
+                        { amount: 20, bonus: 2, price: 6000, discount: 10 },
+                        { amount: 30, bonus: 3, price: 9000, discount: 10 },
+                        { amount: 40, bonus: 4, price: 12000, discount: 10 },
+                        { amount: 50, bonus: 5, price: 15000, discount: 10 },
+                        { amount: 60, bonus: 6, price: 18000, discount: 10 }
+                    ],
+                    'medium': [
+                        { amount: 100, bonus: 10, price: 30000, discount: 15 },
+                        { amount: 200, bonus: 20, price: 60000, discount: 15 },
+                        { amount: 300, bonus: 30, price: 90000, discount: 15 },
+                        { amount: 400, bonus: 40, price: 120000, discount: 15 },
+                        { amount: 500, bonus: 50, price: 150000, discount: 15 },
+                        { amount: 600, bonus: 60, price: 180000, discount: 15 }
+                    ],
+                    'large': [
+                        { amount: 1000, bonus: 100, price: 300000, discount: 20 },
+                        { amount: 1500, bonus: 150, price: 450000, discount: 20 },
+                        { amount: 2000, bonus: 200, price: 600000, discount: 20 },
+                        { amount: 3000, bonus: 300, price: 900000, discount: 20 },
+                        { amount: 4000, bonus: 400, price: 1200000, discount: 25 },
+                        { amount: 5000, bonus: 500, price: 1500000, discount: 25 }
+                    ]
+                }
+            },
+            {
+                id: 'magicchess',
+                name: 'Magic Chess Gogo',
+                image: 'MC GOGO.jpeg',
+                desc: 'Diamond Magic Chess dari 10 sampai 3000',
+                currency: 'Diamond',
+                packages: {
+                    'small': [
+                        { amount: 10, bonus: 1, price: 2500, discount: 10 },
+                        { amount: 20, bonus: 2, price: 5000, discount: 10 },
+                        { amount: 30, bonus: 3, price: 7500, discount: 10 },
+                        { amount: 40, bonus: 4, price: 10000, discount: 10 },
+                        { amount: 50, bonus: 5, price: 12500, discount: 10 },
+                        { amount: 60, bonus: 6, price: 15000, discount: 10 }
+                    ],
+                    'medium': [
+                        { amount: 100, bonus: 10, price: 25000, discount: 15 },
+                        { amount: 200, bonus: 20, price: 50000, discount: 15 },
+                        { amount: 300, bonus: 30, price: 75000, discount: 15 },
+                        { amount: 400, bonus: 40, price: 100000, discount: 15 },
+                        { amount: 500, bonus: 50, price: 125000, discount: 15 },
+                        { amount: 600, bonus: 60, price: 150000, discount: 15 }
+                    ],
+                    'large': [
+                        { amount: 1000, bonus: 100, price: 250000, discount: 20 },
+                        { amount: 1500, bonus: 150, price: 375000, discount: 20 },
+                        { amount: 2000, bonus: 200, price: 500000, discount: 20 },
+                        { amount: 2500, bonus: 250, price: 625000, discount: 20 },
+                        { amount: 3000, bonus: 300, price: 750000, discount: 25 }
+                    ]
+                }
+            },
+            {
+                id: 'honkaistarrail',
+                name: 'Honkai Star Rail',
+                image: 'hsr.jpeg',
+                desc: 'Oneiric Shards dari 60 sampai 6480',
+                currency: 'Shards',
+                packages: {
+                    'small': [
+                        { amount: 60, bonus: 60, price: 16000, discount: 10 },
+                        { amount: 120, bonus: 120, price: 32000, discount: 10 },
+                        { amount: 180, bonus: 180, price: 48000, discount: 10 },
+                        { amount: 240, bonus: 240, price: 64000, discount: 10 },
+                        { amount: 300, bonus: 300, price: 80000, discount: 10 },
+                        { amount: 360, bonus: 360, price: 96000, discount: 10 }
+                    ],
+                    'medium': [
+                        { amount: 600, bonus: 600, price: 160000, discount: 15 },
+                        { amount: 800, bonus: 800, price: 213000, discount: 15 },
+                        { amount: 1000, bonus: 1000, price: 266000, discount: 15 },
+                        { amount: 1200, bonus: 1200, price: 319000, discount: 15 },
+                        { amount: 1500, bonus: 1500, price: 399000, discount: 15 },
+                        { amount: 2000, bonus: 2000, price: 532000, discount: 15 }
+                    ],
+                    'large': [
+                        { amount: 3000, bonus: 3000, price: 798000, discount: 20 },
+                        { amount: 4000, bonus: 4000, price: 1064000, discount: 20 },
+                        { amount: 5000, bonus: 5000, price: 1330000, discount: 20 },
+                        { amount: 6000, bonus: 6000, price: 1596000, discount: 20 },
+                        { amount: 6480, bonus: 6480, price: 1728000, discount: 25 }
+                    ]
+                }
+            }
+        ];
+
+        const flashSaleItems = [
+            {
+                id: 'fs1',
+                game: 'Mobile Legends',
+                amount: 100,
+                bonus: 20,
+                currency: 'Diamond',
+                originalPrice: 30000,
+                salePrice: 24000,
+                discount: 20,
+                sold: 45,
+                total: 100
+            },
+            {
+                id: 'fs2',
+                game: 'Free Fire',
+                amount: 140,
+                bonus: 20,
+                currency: 'Diamond',
+                originalPrice: 42000,
+                salePrice: 32000,
+                discount: 24,
+                sold: 32,
+                total: 80
+            },
+            {
+                id: 'fs3',
+                game: 'PUBG Mobile',
+                amount: 600,
+                bonus: 60,
+                currency: 'UC',
+                originalPrice: 150000,
+                salePrice: 120000,
+                discount: 20,
+                sold: 28,
+                total: 60
+            },
+            {
+                id: 'fs4',
+                game: 'Valorant',
+                amount: 1000,
+                bonus: 100,
+                currency: 'VP',
+                originalPrice: 120000,
+                salePrice: 96000,
+                discount: 20,
+                sold: 19,
+                total: 50
+            },
+            {
+                id: 'fs5',
+                game: 'Honor of Kings',
+                amount: 100,
+                bonus: 20,
+                currency: 'Tokens',
+                originalPrice: 30000,
+                salePrice: 24000,
+                discount: 20,
+                sold: 15,
+                total: 40
+            },
+            {
+                id: 'fs6',
+                game: 'Free Fire MAX',
+                amount: 70,
+                bonus: 10,
+                currency: 'Diamond',
+                originalPrice: 21700,
+                salePrice: 17360,
+                discount: 20,
+                sold: 22,
+                total: 50
+            }
+        ];
+
+        const testimoniData = [
+            {
+                id: 1,
+                name: "Rizky Pratama",
+                avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+                game: "Mobile Legends",
+                rating: 5,
+                message: "Top up diamond ML di Dhil Store benar-benar cepat! Hanya 2 menit diamond langsung masuk. Harganya juga paling murah dibanding toko lain. Recommended banget!",
+                date: "3 hari yang lalu",
+                verified: true
+            },
+            {
+                id: 2,
+                name: "Sari Dewi",
+                avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+                game: "Free Fire",
+                rating: 5,
+                message: "Pertama kali beli diamond FF di sini, adminnya ramah dan fast respon. Diamond masuk dengan cepat. Pasti akan beli lagi!",
+                date: "1 minggu yang lalu",
+                verified: true
+            },
+            {
+                id: 3,
+                name: "Ahmad Fauzi",
+                avatar: "https://randomuser.me/api/portraits/men/67.jpg",
+                game: "Joki MLBB",
+                rating: 5,
+                message: "Joki MLBB dari Epic ke Mythic sangat memuaskan! Player profesional dan bisa request hero. Rank naik dengan cepat tanpa turun. Terima kasih Dhil Store!",
+                date: "2 minggu yang lalu",
+                verified: true
+            },
+            {
+                id: 4,
+                name: "Linda Wijaya",
+                avatar: "https://randomuser.me/api/portraits/women/68.jpg",
+                game: "Genshin Impact",
+                rating: 5,
+                message: "Beli Genesis Crystal untuk gacha karakter baru. Prosesnya instant, crystal langsung masuk. Admin sangat membantu menjelaskan paket yang cocok.",
+                date: "5 hari yang lalu",
+                verified: true
+            }
+        ];
+
+        const pulsaPackages = {
+            telkomsel: [
+                { amount: '5.000', price: 6000 },
+                { amount: '10.000', price: 11000 },
+                { amount: '20.000', price: 21000 },
+                { amount: '25.000', price: 26000 },
+                { amount: '50.000', price: 51000 },
+                { amount: '100.000', price: 101000 }
+            ],
+            xl: [
+                { amount: '5.000', price: 6000 },
+                { amount: '10.000', price: 11000 },
+                { amount: '25.000', price: 26000 },
+                { amount: '50.000', price: 51000 },
+                { amount: '100.000', price: 101000 }
+            ],
+            indosat: [
+                { amount: '5.000', price: 6000 },
+                { amount: '10.000', price: 11000 },
+                { amount: '20.000', price: 21000 },
+                { amount: '50.000', price: 51000 },
+                { amount: '100.000', price: 101000 }
+            ],
+            smartfren: [
+                { amount: '5.000', price: 6000 },
+                { amount: '10.000', price: 11000 },
+                { amount: '20.000', price: 21000 },
+                { amount: '50.000', price: 51000 }
+            ],
+            axis: [
+                { amount: '5.000', price: 6000 },
+                { amount: '10.000', price: 11000 },
+                { amount: '25.000', price: 26000 },
+                { amount: '50.000', price: 51000 }
+            ]
+        };
+
+        const dataPackages = {
+            telkomsel: [
+                { name: 'Internet OMG! 1GB', quota: '1GB', validity: '1 Hari', price: 10000 },
+                { name: 'Internet OMG! 3GB', quota: '3GB', validity: '7 Hari', price: 20000 },
+                { name: 'Internet OMG! 8GB', quota: '8GB', validity: '30 Hari', price: 50000 },
+                { name: 'Internet OMG! 15GB', quota: '15GB', validity: '30 Hari', price: 80000 },
+                { name: 'Internet OMG! 30GB', quota: '30GB', validity: '30 Hari', price: 150000 }
+            ],
+            xl: [
+                { name: 'XTRA Combo 2GB', quota: '2GB', validity: '7 Hari', price: 15000 },
+                { name: 'XTRA Combo 5GB', quota: '5GB', validity: '30 Hari', price: 35000 },
+                { name: 'XTRA Combo 10GB', quota: '10GB', validity: '30 Hari', price: 60000 },
+                { name: 'XTRA Combo 20GB', quota: '20GB', validity: '30 Hari', price: 100000 }
+            ],
+            indosat: [
+                { name: 'FREEDOM COMBO 3GB', quota: '3GB', validity: '7 Hari', price: 20000 },
+                { name: 'FREEDOM COMBO 7GB', quota: '7GB', validity: '30 Hari', price: 45000 },
+                { name: 'FREEDOM COMBO 12GB', quota: '12GB', validity: '30 Hari', price: 70000 },
+                { name: 'FREEDOM COMBO 25GB', quota: '25GB', validity: '30 Hari', price: 120000 }
+            ],
+            smartfren: [
+                { name: 'Smart 2GB', quota: '2GB', validity: '7 Hari', price: 15000 },
+                { name: 'Smart 5GB', quota: '5GB', validity: '30 Hari', price: 30000 },
+                { name: 'Smart 10GB', quota: '10GB', validity: '30 Hari', price: 55000 },
+                { name: 'Smart 20GB', quota: '20GB', validity: '30 Hari', price: 90000 }
+            ],
+            axis: [
+                { name: 'AXIS 3GB', quota: '3GB', validity: '7 Hari', price: 18000 },
+                { name: 'AXIS 7GB', quota: '7GB', validity: '30 Hari', price: 40000 },
+                { name: 'AXIS 12GB', quota: '12GB', validity: '30 Hari', price: 65000 },
+                { name: 'AXIS 20GB', quota: '20GB', validity: '30 Hari', price: 95000 }
+            ]
+        };
+
+        const jokiRanks = [
+            { rank: 'Warrior', icon: 'fas fa-shield-alt', price: '15.000', desc: 'Naik rank dari Warrior III ke Warrior I' },
+            { rank: 'Elite', icon: 'fas fa-shield-alt', price: '25.000', desc: 'Naik rank dari Elite V ke Elite I' },
+            { rank: 'Master', icon: 'fas fa-shield-alt', price: '40.000', desc: 'Naik rank dari Master V ke Master I' },
+            { rank: 'Grandmaster', icon: 'fas fa-shield-alt', price: '60.000', desc: 'Naik rank dari Grandmaster V ke Grandmaster I' },
+            { rank: 'Epic', icon: 'fas fa-crown', price: '85.000', desc: 'Naik rank dari Epic V ke Epic I' },
+            { rank: 'Legend', icon: 'fas fa-crown', price: '120.000', desc: 'Naik rank dari Legend V ke Legend I' },
+            { rank: 'Mythic', icon: 'fas fa-star', price: '180.000', desc: 'Naik rank dari Mythic V ke Mythic I' },
+            { rank: 'Mythical Glory', icon: 'fas fa-star', price: '250.000', desc: 'Naik rank dari Mythical Glory 600+ points' }
+        ];
+
+        // ===========================================
+        // STATE MANAGEMENT
+        // ===========================================
+        const state = {
+            selectedGame: 'ml',
+            selectedPackage: null,
+            selectedJoki: null,
+            selectedPulsa: null,
+            selectedData: null,
+            selectedOperator: 'telkomsel',
+            colorAnimationEnabled: true,
+            quickOrderItems: [],
+            testimoniRating: 5,
+            firstTimeTopUp: {}
+        };
+
+        // ===========================================
+        // INITIALIZATION
+        // ===========================================
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load first-time status
+            const savedFirstTime = localStorage.getItem('firstTimeTopUp');
+            if (savedFirstTime) {
+                state.firstTimeTopUp = JSON.parse(savedFirstTime);
+            }
+            
+            initializeGames();
+            initializeJoki();
+            initializeFlashSale();
+            initializePulsaData();
+            initializeTestimoni();
+            setupEventListeners();
+            startCountdown();
+            startStatsAnimation();
+            showNotification('Selamat datang di Dhil Store! 🎮', 'success');
+        });
+
+        // ===========================================
+        // INITIALIZATION FUNCTIONS
+        // ===========================================
+        function initializeGames() {
+            const gamesGrid = document.getElementById('gamesGrid');
+            const gameNav = document.getElementById('gameNav');
+            const gameSections = document.getElementById('gameSections');
+            
+            games.forEach((game, index) => {
+                // Create game card
+                const gameCard = document.createElement('div');
+                gameCard.className = 'game-card';
+                
+                // Add badges
+                const hotBadge = game.id === 'ml' || game.id === 'ff' ? '<div class="hot-badge">🔥 HOT</div>' : '';
+                const firstTimeBadge = game.id === 'ml' && !state.firstTimeTopUp[game.id] ? 
+                    '<div class="first-time-game-badge">500+500!</div>' : '';
+                
+                gameCard.innerHTML = `
+                    ${hotBadge}
+                    ${firstTimeBadge}
+                    <div class="game-image" style="background-image: url('${game.image}');"></div>
+                    <div class="game-info">
+                        <h3 class="game-title">${game.name}</h3>
+                        <p class="game-desc">${game.desc}</p>
+                        ${game.id === 'ml' && !state.firstTimeTopUp[game.id] ? 
+                          '<p style="color: #ffd700; font-size: 0.9rem; margin-bottom: 10px;"><i class="fas fa-gift"></i> Bonus 500 Diamond untuk first time top up!</p>' : ''}
+                        <button class="btn select-game" data-game="${game.id}">
+                            <i class="fas fa-shopping-cart"></i> Top Up Sekarang
+                        </button>
+                    </div>
+                `;
+                gamesGrid.appendChild(gameCard);
+                
+                // Create game nav button
+                const navBtn = document.createElement('button');
+                navBtn.className = `game-nav-btn ${index === 0 ? 'active' : ''}`;
+                navBtn.setAttribute('data-game', game.id);
+                
+                const specialIcon = game.id === 'ml' && !state.firstTimeTopUp[game.id] ? ' <i class="fas fa-gift" style="color: #ffd700;"></i>' : '';
+                navBtn.innerHTML = `<i class="fas fa-gamepad"></i> ${game.name}${specialIcon}`;
+                
+                gameNav.appendChild(navBtn);
+                
+                // Create game section
+                const gameSection = document.createElement('div');
+                gameSection.className = `game-section ${index === 0 ? 'active' : ''}`;
+                gameSection.id = `${game.id}-topup`;
+                gameSection.innerHTML = createGameForm(game);
+                gameSections.appendChild(gameSection);
+            });
+        }
+
+        function createGameForm(game) {
+            const hasWeekly = game.packages.weekly && game.packages.weekly.length > 0;
+            const hasMembership = game.packages.membership && game.packages.membership.length > 0;
+            
+            return `
+                <div class="topup-form">
+                    <h3 style="margin-bottom: 20px; text-align: center;">
+                        <i class="fas fa-gamepad"></i> Top Up ${game.name}
+                    </h3>
+                    
+                    <form id="${game.id}Form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="${game.id}-userID">
+                                    <i class="fas fa-user"></i> ID Game
+                                </label>
+                                <input type="text" id="${game.id}-userID" class="form-control" 
+                                       placeholder="Masukkan ID Game" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="${game.id}-serverID">
+                                    <i class="fas fa-server"></i> Server ID
+                                </label>
+                                <input type="text" id="${game.id}-serverID" class="form-control" 
+                                       placeholder="Masukkan Server ID" required>
+                            </div>
+                        </div>
+                        
+                        <h3 style="margin: 30px 0 20px; text-align: center;">
+                            <i class="fas fa-gem"></i> Pilih Paket ${game.currency}
+                        </h3>
+                        
+                        <!-- Range Tabs -->
+                        <div class="range-tabs">
+                            <div class="range-tab active" data-range="small">Kecil (5-50)</div>
+                            <div class="range-tab" data-range="medium">Sedang (70-300)</div>
+                            <div class="range-tab" data-range="large">Besar (500-5000)</div>
+                            ${hasWeekly ? '<div class="weekly-tab" data-range="weekly">Weekly Diamond</div>' : ''}
+                            ${hasMembership ? '<div class="membership-tab" data-range="membership">Membership</div>' : ''}
+                        </div>
+                        
+                        <!-- Small Packages -->
+                        <div class="tab-content active" id="${game.id}-small">
+                            <div class="package-scroll-container">
+                                <div class="packages-grid">
+                                    ${game.packages.small.map(pkg => createPackageCard(pkg, game.currency, game.id)).join('')}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Medium Packages -->
+                        <div class="tab-content" id="${game.id}-medium">
+                            <div class="package-scroll-container">
+                                <div class="packages-grid">
+                                    ${game.packages.medium.map(pkg => createPackageCard(pkg, game.currency, game.id)).join('')}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Large Packages -->
+                        <div class="tab-content" id="${game.id}-large">
+                            <div class="package-scroll-container">
+                                <div class="packages-grid">
+                                    ${game.packages.large.map(pkg => createPackageCard(pkg, game.currency, game.id)).join('')}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        ${hasWeekly ? `
+                        <!-- Weekly Packages -->
+                        <div class="tab-content" id="${game.id}-weekly">
+                            <div class="package-scroll-container">
+                                <div class="packages-grid">
+                                    ${game.packages.weekly.map((pkg, index) => createSpecialPackageCard(pkg, game.currency, game.id, 'weekly', index === 1)).join('')}
+                                </div>
+                            </div>
+                        </div>
+                        ` : ''}
+                        
+                        ${hasMembership ? `
+                        <!-- Membership Packages -->
+                        <div class="tab-content" id="${game.id}-membership">
+                            <div class="package-scroll-container">
+                                <div class="packages-grid">
+                                    ${game.packages.membership.map((pkg, index) => createSpecialPackageCard(pkg, game.currency, game.id, 'membership', index === 1)).join('')}
+                                </div>
+                            </div>
+                        </div>
+                        ` : ''}
+                        
+                        <!-- First Time Warning -->
+                        <div id="first-time-warning" style="display: none; background: rgba(255, 107, 0, 0.1); border-left: 4px solid #ff6b00; padding: 15px; margin: 20px 0; border-radius: 5px;">
+                            <p style="color: #ff6b00; margin: 0;">
+                                <i class="fas fa-exclamation-circle"></i> 
+                                <strong>Perhatian:</strong> Paket 500+500 Diamond hanya berlaku untuk first time top up. Pastikan Anda belum pernah top up sebelumnya.
+                            </p>
+                        </div>
+                        
+                        <button type="submit" class="btn" style="width: 100%; margin-top: 30px;">
+                            <i class="fab fa-whatsapp"></i> Lanjutkan ke WhatsApp
+                        </button>
+                    </form>
+                </div>
+            `;
+        }
+
+        function createPackageCard(pkg, currency, gameId) {
+            const discountPrice = Math.round(pkg.price * (100 - pkg.discount) / 100);
+            const totalAmount = pkg.amount + (pkg.bonus || 0);
+            
+            const specialBadge = pkg.special === 'first-time' ? 
+                '<div class="first-time-badge">FIRST TIME ONLY</div>' : '';
+            
+            return `
+                <div class="package-card" id="${gameId}-${pkg.amount}" style="position: relative;">
+                    ${specialBadge}
+                    ${pkg.discount > 0 ? `<div class="discount-badge">-${pkg.discount}%</div>` : ''}
+                    <div class="package-name">Paket ${currency}</div>
+                    <div class="diamond-amount">
+                        ${pkg.amount}${pkg.bonus > 0 ? ` +${pkg.bonus}` : ''} ${currency}
+                        ${pkg.bonus > 0 ? `<br><small>Total: ${totalAmount}</small>` : ''}
+                        ${pkg.special === 'first-time' ? '<br><small style="color: #ffd700;">Bonus 500 Diamond!</small>' : ''}
+                    </div>
+                    <div class="price">
+                        ${pkg.discount > 0 ? `<span class="original-price">Rp ${pkg.price.toLocaleString('id-ID')}</span>` : ''}
+                        <span class="discounted-price">Rp ${discountPrice.toLocaleString('id-ID')}</span>
+                    </div>
+                    <button type="button" class="btn select-package" 
+                            data-game="${gameId}"
+                            data-amount="${pkg.amount}"
+                            data-bonus="${pkg.bonus || 0}"
+                            data-price="${discountPrice}"
+                            data-total="${totalAmount}"
+                            data-type="regular"
+                            data-special="${pkg.special || ''}">
+                        Pilih
+                    </button>
+                </div>
+            `;
+        }
+
+        function createSpecialPackageCard(pkg, currency, gameId, type, mostPopular = false) {
+            const discountPrice = Math.round(pkg.price * (100 - pkg.discount) / 100);
+            const totalAmount = pkg.total || pkg.amount;
+            
+            return `
+                <div class="package-card ${type === 'weekly' ? 'special-package' : 'membership-package'} ${mostPopular ? 'most-popular' : ''}" 
+                     id="${gameId}-${type}-${pkg.amount.replace(/\s+/g, '-')}">
+                    ${type === 'weekly' ? '<div class="weekly-badge"><i class="fas fa-calendar-week"></i> WEEKLY</div>' : ''}
+                    ${type === 'membership' ? '<div class="membership-badge"><i class="fas fa-crown"></i> MEMBERSHIP</div>' : ''}
+                    ${pkg.discount > 0 ? `<div class="discount-badge">-${pkg.discount}%</div>` : ''}
+                    
+                    <div class="package-name">${pkg.amount}</div>
+                    <div class="duration-badge">
+                        <i class="fas fa-clock"></i> ${pkg.duration}
+                    </div>
+                    
+                    <div class="diamond-amount">
+                        ${type === 'weekly' ? `Total: ${totalAmount} ${currency}` : pkg.amount}
+                    </div>
+                    
+                    ${type === 'weekly' && pkg.total ? `
+                        <div style="font-size: 0.9rem; color: var(--text-gray); margin: 5px 0;">
+                            <i class="fas fa-gift"></i> ${pkg.total} ${currency} total
+                        </div>
+                    ` : ''}
+                    
+                    <div class="price">
+                        ${pkg.discount > 0 ? `<span class="original-price">Rp ${pkg.price.toLocaleString('id-ID')}</span>` : ''}
+                        <span class="discounted-price">Rp ${discountPrice.toLocaleString('id-ID')}</span>
+                    </div>
+                    
+                    ${pkg.benefits && pkg.benefits.length > 0 ? `
+                        <div class="benefit-list">
+                            <ul>
+                                ${pkg.benefits.map(benefit => `<li><i class="fas fa-check-circle"></i> ${benefit}</li>`).join('')}
+                            </ul>
+                        </div>
+                    ` : ''}
+                    
+                    <button type="button" class="btn select-package" 
+                            data-game="${gameId}"
+                            data-amount="${pkg.amount}"
+                            data-duration="${pkg.duration}"
+                            data-price="${discountPrice}"
+                            data-total="${totalAmount}"
+                            data-type="${type}">
+                        Pilih
+                    </button>
+                </div>
+            `;
+        }
+
+        function initializeJoki() {
+            const jokiGrid = document.getElementById('jokiGrid');
+            
+            jokiRanks.forEach(rank => {
+                const jokiCard = document.createElement('div');
+                jokiCard.className = 'joki-card';
+                jokiCard.innerHTML = `
+                    <div class="rank-icon">
+                        <i class="${rank.icon}"></i>
+                    </div>
+                    <h3 class="rank-name">${rank.rank}</h3>
+                    <p class="rank-desc">${rank.desc}</p>
+                    <div class="joki-price">Rp ${rank.price}</div>
+                    <button class="btn select-joki" 
+                            data-rank="${rank.rank}" 
+                            data-price="${rank.price.replace('.', '')}">
+                        <i class="fas fa-check"></i> Pilih Joki
+                    </button>
+                `;
+                jokiGrid.appendChild(jokiCard);
+            });
+        }
+
+        function initializeFlashSale() {
+            const flashSaleContainer = document.getElementById('flashSaleItems');
+            flashSaleContainer.innerHTML = '';
+            
+            flashSaleItems.forEach(item => {
+                const progressPercentage = (item.sold / item.total) * 100;
+                const flashItem = document.createElement('div');
+                flashItem.className = 'flash-sale-item';
+                
+                const specialBadge = item.special === 'first-time' ? 
+                    '<div class="first-time-badge">FIRST TIME ONLY</div>' : '';
+                
+                flashItem.innerHTML = `
+                    ${specialBadge}
+                    <div class="flash-discount">-${item.discount}%</div>
+                    <h3 style="color: #ffd700; margin-bottom: 10px;">${item.game}</h3>
+                    <div class="diamond-amount" style="font-size: 1.5rem;">
+                        ${item.amount} + ${item.bonus} ${item.currency}
+                        ${item.special === 'first-time' ? '<br><small style="color: #ffd700;">Khusus Pertama Kali Top Up!</small>' : ''}
+                    </div>
+                    <div class="price" style="margin: 10px 0;">
+                        <span class="original-price" style="color: #ffd700;">Rp ${item.originalPrice.toLocaleString('id-ID')}</span>
+                        <span class="discounted-price" style="color: white; font-size: 1.3rem;">Rp ${item.salePrice.toLocaleString('id-ID')}</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: ${progressPercentage}%"></div>
+                    </div>
+                    <div class="sold-count">
+                        <i class="fas fa-fire"></i> Terjual: ${item.sold}/${item.total}
+                    </div>
+                    <button class="btn" style="width: 100%; margin-top: 15px;" 
+                            onclick="addToQuickOrder('${item.id}', '${item.game}', ${item.salePrice}, '${item.amount}+${item.bonus} ${item.currency}')">
+                        <i class="fas fa-bolt"></i> Beli Sekarang
+                    </button>
+                `;
+                flashSaleContainer.appendChild(flashItem);
+            });
+        }
+
+        function initializePulsaData() {
+            renderPulsaPackages('telkomsel');
+            renderDataPackages('telkomsel');
+        }
+
+        function initializeTestimoni() {
+            const testimoniGrid = document.getElementById('testimoniGrid');
+            testimoniGrid.innerHTML = '';
+            
+            testimoniData.forEach(testimoni => {
+                const testimoniCard = document.createElement('div');
+                testimoniCard.className = 'testimoni-card';
+                
+                // Generate stars
+                let stars = '';
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= testimoni.rating) {
+                        stars += '<i class="fas fa-star"></i>';
+                    } else {
+                        stars += '<i class="far fa-star"></i>';
+                    }
+                }
+                
+                testimoniCard.innerHTML = `
+                    ${testimoni.verified ? '<div class="testimoni-badge">✔ Verified</div>' : ''}
+                    <div class="testimoni-header">
+                        <img src="${testimoni.avatar}" alt="${testimoni.name}" class="testimoni-avatar">
+                        <div class="testimoni-info">
+                            <div class="testimoni-name">${testimoni.name}</div>
+                            <div class="testimoni-game">${testimoni.game}</div>
+                            <div class="rating">${stars}</div>
+                        </div>
+                    </div>
+                    <div class="testimoni-text">"${testimoni.message}"</div>
+                    <div class="testimoni-date">${testimoni.date}</div>
+                `;
+                testimoniGrid.appendChild(testimoniCard);
+            });
+            
+            setupRatingStars();
+        }
+
+        // ===========================================
+        // UTILITY FUNCTIONS
+        // ===========================================
+        function renderPulsaPackages(operator) {
+            const container = document.getElementById('pulsaPackages');
+            container.innerHTML = '';
+            
+            pulsaPackages[operator].forEach(pkg => {
+                const packageEl = document.createElement('div');
+                packageEl.className = 'pulsa-package';
+                packageEl.setAttribute('data-amount', pkg.amount);
+                packageEl.setAttribute('data-price', pkg.price);
+                packageEl.innerHTML = `
+                    <div class="pulsa-amount">${pkg.amount}</div>
+                    <div class="pulsa-price">Rp ${pkg.price.toLocaleString('id-ID')}</div>
+                `;
+                container.appendChild(packageEl);
+            });
+            
+            // Add click handlers
+            document.querySelectorAll('#pulsaPackages .pulsa-package').forEach(pkg => {
+                pkg.addEventListener('click', function() {
+                    document.querySelectorAll('#pulsaPackages .pulsa-package').forEach(p => p.classList.remove('selected'));
+                    this.classList.add('selected');
+                    state.selectedPulsa = {
+                        amount: this.getAttribute('data-amount'),
+                        price: this.getAttribute('data-price'),
+                        operator: operator
+                    };
+                });
+            });
+        }
+
+        function renderDataPackages(operator) {
+            const container = document.getElementById('dataPackages');
+            container.innerHTML = '';
+            
+            dataPackages[operator].forEach(pkg => {
+                const packageEl = document.createElement('div');
+                packageEl.className = 'pulsa-package';
+                packageEl.setAttribute('data-name', pkg.name);
+                packageEl.setAttribute('data-quota', pkg.quota);
+                packageEl.setAttribute('data-validity', pkg.validity);
+                packageEl.setAttribute('data-price', pkg.price);
+                packageEl.innerHTML = `
+                    <div class="pulsa-amount" style="font-size: 1.1rem;">${pkg.name}</div>
+                    <div style="color: var(--text-gray); font-size: 0.9rem; margin: 5px 0;">
+                        ${pkg.quota} | ${pkg.validity}
+                    </div>
+                    <div class="pulsa-price">Rp ${pkg.price.toLocaleString('id-ID')}</div>
+                `;
+                container.appendChild(packageEl);
+            });
+            
+            // Add click handlers
+            document.querySelectorAll('#dataPackages .pulsa-package').forEach(pkg => {
+                pkg.addEventListener('click', function() {
+                    document.querySelectorAll('#dataPackages .pulsa-package').forEach(p => p.classList.remove('selected'));
+                    this.classList.add('selected');
+                    state.selectedData = {
+                        name: this.getAttribute('data-name'),
+                        quota: this.getAttribute('data-quota'),
+                        validity: this.getAttribute('data-validity'),
+                        price: this.getAttribute('data-price'),
+                        operator: operator
+                    };
+                });
+            });
+        }
+
+        function setupRatingStars() {
+            const stars = document.querySelectorAll('.rating-star');
+            stars.forEach(star => {
+                star.addEventListener('click', function() {
+                    const rating = parseInt(this.getAttribute('data-rating'));
+                    state.testimoniRating = rating;
+                    document.getElementById('testimoni-rating').value = rating;
+                    
+                    // Update star display
+                    stars.forEach((s, index) => {
+                        if (index < rating) {
+                            s.classList.remove('far');
+                            s.classList.add('fas');
+                            s.style.color = '#ffd700';
+                        } else {
+                            s.classList.remove('fas');
+                            s.classList.add('far');
+                            s.style.color = '#ccc';
+                        }
+                    });
+                });
+            });
+        }
+
+        // ===========================================
+        // EVENT HANDLERS
+        // ===========================================
+        function setupEventListeners() {
+            // Game Navigation
+            document.addEventListener('click', function(e) {
+                // Game nav buttons
+                if (e.target.closest('.game-nav-btn')) {
+                    const btn = e.target.closest('.game-nav-btn');
+                    const gameId = btn.getAttribute('data-game');
+                    
+                    // Update active button
+                    document.querySelectorAll('.game-nav-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    // Update active section
+                    document.querySelectorAll('.game-section').forEach(s => s.classList.remove('active'));
+                    document.getElementById(`${gameId}-topup`).classList.add('active');
+                    
+                    // Reset selected package
+                    state.selectedPackage = null;
+                    document.querySelectorAll('.select-package').forEach(b => {
+                        b.textContent = 'Pilih';
+                        const card = b.closest('.package-card');
+                        if (card) card.classList.remove('selected');
+                    });
+                    
+                    state.selectedGame = gameId;
+                }
+                
+                // Game card buttons
+                if (e.target.closest('.select-game')) {
+                    const btn = e.target.closest('.select-game');
+                    const gameId = btn.getAttribute('data-game');
+                    const gameBtn = document.querySelector(`.game-nav-btn[data-game="${gameId}"]`);
+                    
+                    if (gameBtn) {
+                        gameBtn.click();
+                        document.getElementById('topup').scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+                
+                // Range tabs
+                if (e.target.closest('.range-tab') || e.target.closest('.weekly-tab') || e.target.closest('.membership-tab')) {
+                    const tab = e.target.closest('.range-tab, .weekly-tab, .membership-tab');
+                    const range = tab.getAttribute('data-range');
+                    const gameId = state.selectedGame;
+                    
+                    // Update active tab
+                    const tabsContainer = tab.closest('.range-tabs');
+                    tabsContainer.querySelectorAll('.range-tab, .weekly-tab, .membership-tab').forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    // Update active content
+                    const container = tab.closest('.topup-form');
+                    container.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                    const targetTab = document.getElementById(`${gameId}-${range}`);
+                    if (targetTab) {
+                        targetTab.classList.add('active');
+                    }
+                }
+                
+                // Package selection
+                if (e.target.closest('.select-package')) {
+                    const btn = e.target.closest('.select-package');
+                    selectPackage(btn);
+                }
+                
+                // Joki selection
+                if (e.target.closest('.select-joki')) {
+                    const btn = e.target.closest('.select-joki');
+                    selectJoki(btn);
+                }
+                
+                // Operator tabs
+                if (e.target.closest('.operator-tab')) {
+                    const tab = e.target.closest('.operator-tab');
+                    const operator = tab.getAttribute('data-operator');
+                    
+                    // Update active tab
+                    tab.parentElement.querySelectorAll('.operator-tab').forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    state.selectedOperator = operator;
+                    
+                    // Update packages based on operator
+                    if (tab.closest('#pulsa-tab')) {
+                        renderPulsaPackages(operator);
+                    } else if (tab.closest('#data-tab')) {
+                        renderDataPackages(operator);
+                    }
+                }
+                
+                // Tab switching for pulsa/data
+                if (e.target.closest('.tab')) {
+                    const tab = e.target.closest('.tab');
+                    const tabId = tab.getAttribute('data-tab');
+                    
+                    // Update active tab
+                    tab.parentElement.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    // Update active content
+                    tab.closest('.container').querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                    document.getElementById(`${tabId}-tab`).classList.add('active');
+                }
+            });
+            
+            // Form submissions
+            document.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Game forms
+                if (e.target.id.endsWith('Form') && e.target.id !== 'jokiForm' && e.target.id !== 'pulsaForm' && e.target.id !== 'dataForm' && e.target.id !== 'testimoniForm') {
+                    const gameId = e.target.id.replace('Form', '');
+                    const formData = getFormData(gameId);
+                    
+                    if (!formData.userID || !formData.serverID) {
+                        showNotification('Harap isi ID Game dan Server ID terlebih dahulu!', 'error');
+                        return;
+                    }
+                    
+                    if (!state.selectedPackage || state.selectedPackage.game !== gameId) {
+                        showNotification('Harap pilih paket diamond terlebih dahulu!', 'error');
+                        return;
+                    }
+                    
+                    // Validasi khusus untuk paket first-time
+                    if (state.selectedPackage.special === 'first-time') {
+                        const warningDiv = document.getElementById('first-time-warning');
+                        if (warningDiv) {
+                            warningDiv.style.display = 'block';
+                            warningDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            
+                            const confirmed = confirm("Paket 500+500 Diamond hanya untuk first time top up. Apakah Anda yakin belum pernah top up sebelumnya?");
+                            if (!confirmed) {
+                                showNotification('Silakan pilih paket lainnya.', 'info');
+                                return;
+                            }
+                        }
+                    }
+                    
+                    processTopup(gameId, formData);
+                }
+                
+                // Joki form
+                if (e.target.id === 'jokiForm') {
+                    const formData = getJokiFormData();
+                    
+                    if (!formData.userID || !formData.serverID || !formData.currentRank || !formData.targetRank) {
+                        showNotification('Harap isi semua data yang diperlukan!', 'error');
+                        return;
+                    }
+                    
+                    processJoki(formData);
+                }
+                
+                // Pulsa form
+                if (e.target.id === 'pulsaForm') {
+                    const phoneNumber = document.getElementById('pulsa-number').value;
+                    
+                    if (!phoneNumber) {
+                        showNotification('Harap masukkan nomor handphone!', 'error');
+                        return;
+                    }
+                    
+                    if (!state.selectedPulsa) {
+                        showNotification('Harap pilih nominal pulsa!', 'error');
+                        return;
+                    }
+                    
+                    processPulsaOrder(phoneNumber);
+                }
+                
+                // Data form
+                if (e.target.id === 'dataForm') {
+                    const phoneNumber = document.getElementById('data-number').value;
+                    
+                    if (!phoneNumber) {
+                        showNotification('Harap masukkan nomor handphone!', 'error');
+                        return;
+                    }
+                    
+                    if (!state.selectedData) {
+                        showNotification('Harap pilih paket data!', 'error');
+                        return;
+                    }
+                    
+                    processDataOrder(phoneNumber);
+                }
+                
+                // Testimoni form
+                if (e.target.id === 'testimoniForm') {
+                    const name = document.getElementById('testimoni-name').value;
+                    const game = document.getElementById('testimoni-game').value;
+                    const message = document.getElementById('testimoni-message').value;
+                    
+                    if (!name || !game || !message) {
+                        showNotification('Harap isi semua data testimoni!', 'error');
+                        return;
+                    }
+                    
+                    submitTestimoni(name, game, message);
+                }
+            });
+            
+            // Theme toggle
+            document.getElementById('themeToggle').addEventListener('click', function() {
+                const icon = this.querySelector('i');
+                if (icon.classList.contains('fa-moon')) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                    showNotification('Mode terang akan segera tersedia!', 'info');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                    showNotification('Mode gelap aktif!', 'success');
+                }
+            });
+            
+            // Color toggle
+            document.getElementById('colorToggle').addEventListener('click', function() {
+                state.colorAnimationEnabled = !state.colorAnimationEnabled;
+                
+                if (state.colorAnimationEnabled) {
+                    document.body.classList.add('color-animated');
+                    document.getElementById('colorStatus').textContent = 'Warna Dinamis: AKTIF';
+                    showNotification('Animasi warna diaktifkan!', 'success');
+                } else {
+                    document.body.classList.remove('color-animated');
+                    document.getElementById('colorStatus').textContent = 'Warna Dinamis: NONAKTIF';
+                    showNotification('Animasi warna dinonaktifkan!', 'info');
+                }
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#') {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
+                });
+            });
+        }
+
+        // ===========================================
+        // BUSINESS LOGIC FUNCTIONS
+        // ===========================================
+        function selectPackage(button) {
+            const gameId = button.getAttribute('data-game');
+            const card = button.closest('.package-card');
+            const packageType = button.getAttribute('data-type') || 'regular';
+            const specialType = button.getAttribute('data-special') || '';
+            
+            // Reset previous selection
+            document.querySelectorAll(`.select-package[data-game="${gameId}"]`).forEach(btn => {
+                btn.textContent = 'Pilih';
+                btn.closest('.package-card')?.classList.remove('selected');
+            });
+            
+            // Set new selection
+            button.textContent = '✓ Dipilih';
+            card.classList.add('selected');
+            
+            // Update state
+            state.selectedPackage = {
+                game: gameId,
+                amount: button.getAttribute('data-amount'),
+                bonus: button.getAttribute('data-bonus') || 0,
+                price: button.getAttribute('data-price'),
+                total: button.getAttribute('data-total'),
+                duration: button.getAttribute('data-duration'),
+                type: packageType,
+                special: specialType
+            };
+            
+            // Tampilkan warning untuk first-time
+            const warningDiv = document.getElementById('first-time-warning');
+            if (warningDiv) {
+                warningDiv.style.display = specialType === 'first-time' ? 'block' : 'none';
+            }
+            
+            const packageName = packageType === 'weekly' ? 'Weekly Diamond' : 
+                               packageType === 'membership' ? 'Membership' : 'Paket';
+            
+            showNotification(`${packageName} berhasil dipilih!`, 'success');
+            
+            // Scroll to selected package
+            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function selectJoki(button) {
+            // Reset previous selection
+            document.querySelectorAll('.select-joki').forEach(btn => {
+                btn.textContent = 'Pilih Joki';
+            });
+            
+            // Set new selection
+            button.textContent = '✓ Dipilih';
+            
+            // Update state
+            state.selectedJoki = {
+                rank: button.getAttribute('data-rank'),
+                price: button.getAttribute('data-price')
+            };
+            
+            // Auto-fill target rank
+            document.getElementById('target-rank').value = state.selectedJoki.rank;
+            
+            showNotification(`Joki ${state.selectedJoki.rank} dipilih!`, 'success');
+        }
+
+        function getFormData(gameId) {
+            return {
+                userID: document.getElementById(`${gameId}-userID`)?.value || '',
+                serverID: document.getElementById(`${gameId}-serverID`)?.value || ''
+            };
+        }
+
+        function getJokiFormData() {
+            return {
+                userID: document.getElementById('joki-userID').value,
+                serverID: document.getElementById('joki-serverID').value,
+                currentRank: document.getElementById('current-rank').value,
+                targetRank: document.getElementById('target-rank').value
+            };
+        }
+
+        function processTopup(gameId, formData) {
+            const game = games.find(g => g.id === gameId);
+            if (!game) return;
+            
+            let packageDetails = '';
+            let totalAmount = 0;
+            
+            if (state.selectedPackage.type === 'weekly') {
+                packageDetails = `${state.selectedPackage.amount} (${state.selectedPackage.duration})`;
+                totalAmount = state.selectedPackage.total;
+            } else if (state.selectedPackage.type === 'membership') {
+                packageDetails = `${state.selectedPackage.amount} (${state.selectedPackage.duration})`;
+                totalAmount = state.selectedPackage.total || state.selectedPackage.amount;
+            } else {
+                totalAmount = parseInt(state.selectedPackage.amount) + parseInt(state.selectedPackage.bonus);
+                packageDetails = `${state.selectedPackage.amount} ${game.currency}${state.selectedPackage.bonus > 0 ? ` + ${state.selectedPackage.bonus} bonus` : ''}`;
+                
+                if (state.selectedPackage.special === 'first-time') {
+                    packageDetails += ` (FIRST TIME ONLY - Bonus 500 Diamond!)`;
+                }
+            }
+            
+            const message = `
+Halo, saya ingin top up ${game.name}:
+ID: ${formData.userID}
+Server: ${formData.serverID}
+Paket: ${packageDetails}
+${state.selectedPackage.type === 'weekly' || state.selectedPackage.type === 'membership' ? `Durasi: ${state.selectedPackage.duration}` : ''}
+${state.selectedPackage.type !== 'weekly' && state.selectedPackage.type !== 'membership' ? `Total: ${totalAmount} ${game.currency}` : ''}
+Harga: Rp ${parseInt(state.selectedPackage.price).toLocaleString('id-ID')}
+Tipe: ${state.selectedPackage.type === 'weekly' ? 'Weekly Diamond' : state.selectedPackage.type === 'membership' ? 'Membership' : 'Regular'}
+${state.selectedPackage.special === 'first-time' ? 'Catatan: Saya belum pernah top up sebelumnya (FIRST TIME)' : ''}
+Saya sudah mengisi form di website Dhil Store.
+            `.trim().replace(/\n/g, '%0A');
+            
+            window.open(`https://wa.me/6281265537794?text=${message}`, '_blank');
+            showNotification('Mengarahkan ke WhatsApp...', 'success');
+            
+            // Simpan status first-time
+            if (state.selectedPackage.special === 'first-time') {
+                state.firstTimeTopUp[gameId] = true;
+                localStorage.setItem('firstTimeTopUp', JSON.stringify(state.firstTimeTopUp));
+            }
+        }
+
+        function processJoki(formData) {
+            let message = `Halo, saya ingin menggunakan jasa joki MLBB:%0A%0AID: ${formData.userID}%0AServer: ${formData.serverID}%0ARank Saat Ini: ${formData.currentRank}%0ATarget Rank: ${formData.targetRank}%0A`;
+            
+            if (state.selectedJoki) {
+                message += `Paket: ${state.selectedJoki.rank}%0AHarga: Rp ${state.selectedJoki.price}%0A`;
+            }
+            
+            message += `%0ASaya sudah mengisi form di website Dhil Store.`;
+            
+            window.open(`https://wa.me/6281265537794?text=${message}`, '_blank');
+            showNotification('Mengarahkan ke WhatsApp...', 'success');
+        }
+
+        function processPulsaOrder(phoneNumber) {
+            const message = `
+Halo, saya ingin membeli pulsa:
+Operator: ${state.selectedPulsa.operator}
+Nomor: ${phoneNumber}
+Nominal: ${state.selectedPulsa.amount}
+Harga: Rp ${state.selectedPulsa.price}
+Saya sudah mengisi form di website Dhil Store.
+            `.trim().replace(/\n/g, '%0A');
+            
+            window.open(`https://wa.me/6281265537794?text=${message}`, '_blank');
+            showNotification('Mengarahkan ke WhatsApp...', 'success');
+        }
+
+        function processDataOrder(phoneNumber) {
+            const message = `
+Halo, saya ingin membeli paket data:
+Operator: ${state.selectedData.operator}
+Nomor: ${phoneNumber}
+Paket: ${state.selectedData.name}
+Kuota: ${state.selectedData.quota}
+Masa Aktif: ${state.selectedData.validity}
+Harga: Rp ${state.selectedData.price}
+Saya sudah mengisi form di website Dhil Store.
+            `.trim().replace(/\n/g, '%0A');
+            
+            window.open(`https://wa.me/6281265537794?text=${message}`, '_blank');
+            showNotification('Mengarahkan ke WhatsApp...', 'success');
+        }
+
+        function submitTestimoni(name, game, message) {
+            const rating = state.testimoniRating;
+            
+            // Create new testimoni element
+            const testimoniGrid = document.getElementById('testimoniGrid');
+            const testimoniCard = document.createElement('div');
+            testimoniCard.className = 'testimoni-card';
+            testimoniCard.style.animation = 'fadeInUp 0.6s ease forwards';
+            
+            // Generate stars
+            let stars = '';
+            for (let i = 1; i <= 5; i++) {
+                if (i <= rating) {
+                    stars += '<i class="fas fa-star"></i>';
+                } else {
+                    stars += '<i class="far fa-star"></i>';
+                }
+            }
+            
+            // Generate random avatar
+            const gender = Math.random() > 0.5 ? 'men' : 'women';
+            const randomId = Math.floor(Math.random() * 99) + 1;
+            const avatarUrl = `https://randomuser.me/api/portraits/${gender}/${randomId}.jpg`;
+            
+            testimoniCard.innerHTML = `
+                <div class="testimoni-badge">Baru</div>
+                <div class="testimoni-header">
+                    <img src="${avatarUrl}" alt="${name}" class="testimoni-avatar">
+                    <div class="testimoni-info">
+                        <div class="testimoni-name">${name}</div>
+                        <div class="testimoni-game">${game}</div>
+                        <div class="rating">${stars}</div>
+                    </div>
+                </div>
+                <div class="testimoni-text">"${message}"</div>
+                <div class="testimoni-date">Baru saja</div>
+            `;
+            
+            // Add to the beginning
+            testimoniGrid.insertBefore(testimoniCard, testimoniGrid.firstChild);
+            
+            // Reset form
+            document.getElementById('testimoniForm').reset();
+            document.getElementById('testimoni-rating').value = 5;
+            
+            // Reset stars
+            const starsEl = document.querySelectorAll('.rating-star');
+            starsEl.forEach((star, index) => {
+                if (index < 5) {
+                    star.classList.remove('far');
+                    star.classList.add('fas');
+                    star.style.color = '#ffd700';
+                }
+            });
+            
+            // Show success
+            showNotification('Testimoni Anda berhasil dikirim!', 'success');
+            
+            // Scroll to see the new testimoni
+            setTimeout(() => {
+                testimoniCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 300);
+        }
+
+        // ===========================================
+        // QUICK ORDER FUNCTIONS
+        // ===========================================
+        function addToQuickOrder(id, name, price, details) {
+            // Remove existing item
+            state.quickOrderItems = state.quickOrderItems.filter(item => item.id !== id);
+            
+            // Add new item
+            state.quickOrderItems.push({
+                id,
+                name,
+                price,
+                details,
+                type: 'flashsale'
+            });
+            
+            updateQuickOrderDisplay();
+            showQuickOrder();
+            showNotification(`${name} ditambahkan ke pesanan cepat!`, 'success');
+        }
+
+        function updateQuickOrderDisplay() {
+            const content = document.getElementById('quickOrderContent');
+            
+            if (state.quickOrderItems.length === 0) {
+                content.innerHTML = 'Pilih item untuk pesan cepat';
+                return;
+            }
+            
+            let html = '<div style="max-height: 200px; overflow-y: auto;">';
+            state.quickOrderItems.forEach((item, index) => {
+                html += `
+                    <div style="border-bottom: 1px solid rgba(255,255,255,0.2); padding: 5px 0; margin-bottom: 5px;">
+                        <div style="font-weight: bold; font-size: 0.9rem;">${item.name}</div>
+                        <div style="font-size: 0.8rem; color: rgba(255,255,255,0.8);">${item.details}</div>
+                        <div style="color: #ffd700; font-weight: bold;">Rp ${item.price.toLocaleString('id-ID')}</div>
+                        <button onclick="removeQuickOrderItem(${index})" style="background: none; border: none; color: #e63946; cursor: pointer; font-size: 0.8rem;">
+                            <i class="fas fa-times"></i> Hapus
+                        </button>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            
+            content.innerHTML = html;
+        }
+
+        function showQuickOrder() {
+            const quickOrder = document.getElementById('quickOrder');
+            quickOrder.classList.add('show');
+            
+            // Hide after 10 seconds
+            setTimeout(() => {
+                if (!quickOrder.matches(':hover')) {
+                    quickOrder.classList.remove('show');
+                }
+            }, 10000);
+        }
+
+        window.removeQuickOrderItem = function(index) {
+            state.quickOrderItems.splice(index, 1);
+            updateQuickOrderDisplay();
+            
+            if (state.quickOrderItems.length === 0) {
+                document.getElementById('quickOrder').classList.remove('show');
+            }
+        }
+
+        window.processQuickOrder = function() {
+            if (state.quickOrderItems.length === 0) {
+                showNotification('Tidak ada item dalam pesanan cepat!', 'error');
+                return;
+            }
+            
+            let message = 'Halo, saya ingin membeli item flash sale berikut:%0A%0A';
+            
+            state.quickOrderItems.forEach(item => {
+                message += `- ${item.name}: ${item.details} - Rp ${item.price.toLocaleString('id-ID')}%0A`;
+            });
+            
+            message += `%0ATotal: Rp ${state.quickOrderItems.reduce((sum, item) => sum + item.price, 0).toLocaleString('id-ID')}%0A`;
+            message += `%0ASaya sudah mengisi form di website Dhil Store.`;
+            
+            window.open(`https://wa.me/6281265537794?text=${message}`, '_blank');
+            showNotification('Mengarahkan ke WhatsApp...', 'success');
+            
+            // Clear quick order
+            state.quickOrderItems = [];
+            updateQuickOrderDisplay();
+            document.getElementById('quickOrder').classList.remove('show');
+        }
+
+        // ===========================================
+        // ANIMATION & EFFECTS
+        // ===========================================
+        function startCountdown() {
+            const endTime = new Date();
+            endTime.setHours(endTime.getHours() + 3);
+            
+            function updateCountdown() {
+                const now = new Date();
+                const timeLeft = endTime - now;
+                
+                if (timeLeft <= 0) {
+                    endTime.setHours(endTime.getHours() + 3);
+                    return;
+                }
+                
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            }
+            
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        }
+
+        function startStatsAnimation() {
+            const stats = [
+                { id: 'customerCount', target: 5000, duration: 2000 },
+                { id: 'transactionCount', target: 15000, duration: 2000 },
+                { id: 'ratingCount', target: 4.9, duration: 1500 },
+                { id: 'responseTime', target: 24, duration: 1000 }
+            ];
+            
+            stats.forEach(stat => {
+                animateNumber(stat.id, stat.target, stat.duration);
+            });
+        }
+
+        function animateNumber(elementId, target, duration) {
+            const element = document.getElementById(elementId);
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = elementId === 'ratingCount' ? target.toFixed(1) : target.toLocaleString('id-ID') + '+';
+                    clearInterval(timer);
+                } else {
+                    element.textContent = elementId === 'ratingCount' ? current.toFixed(1) : Math.floor(current).toLocaleString('id-ID') + '+';
+                }
+            }, 16);
+        }
+
+        // ===========================================
+        // UI HELPER FUNCTIONS
+        // ===========================================
+        window.scrollToTestimoni = function() {
+            document.getElementById('testimoni').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        window.showNotification = function(text, type) {
+            const notification = document.getElementById('notification');
+            const notificationText = document.getElementById('notificationText');
+            
+            notificationText.textContent = text;
+            
+            // Set color based on type
+            if (type === 'error') {
+                notification.style.background = 'linear-gradient(45deg, #e63946, #d00000)';
+            } else if (type === 'success') {
+                notification.style.background = 'linear-gradient(45deg, #4CAF50, #2e7d32)';
+            } else if (type === 'info') {
+                notification.style.background = 'linear-gradient(45deg, #2196f3, #0d47a1)';
+            }
+            
+            notification.style.display = 'block';
+            
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+
+        // ===========================================
+        // AUTO-SCROLL FOR PACKAGE CONTAINERS
+        // ===========================================
+        function setupAutoScroll() {
+            document.querySelectorAll('.package-scroll-container').forEach(container => {
+                let scrollPosition = 0;
+                const scrollStep = 1;
+                const scrollDelay = 30;
+                
+                function scrollContainer() {
+                    if (container.scrollTop >= (container.scrollHeight - container.clientHeight)) {
+                        scrollPosition = 0;
+                        container.scrollTop = 0;
+                    } else {
+                        scrollPosition += scrollStep;
+                        container.scrollTop = scrollPosition;
+                    }
+                }
+                
+                // Start auto-scroll
+                const scrollInterval = setInterval(scrollContainer, scrollDelay);
+                
+                // Pause on hover
+                container.addEventListener('mouseenter', () => {
+                    clearInterval(scrollInterval);
+                });
+                
+                container.addEventListener('mouseleave', () => {
+                    setInterval(scrollContainer, scrollDelay);
+                });
+            });
+        }
+
+        // Initialize auto-scroll
+        setTimeout(setupAutoScroll, 1000);
+    </script>
+</body>
+</html>
